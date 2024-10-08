@@ -20,9 +20,7 @@ Camera::Camera(const rclcpp::NodeOptions& options) : rclcpp::Node("camera", opti
     });
     rclcpp::on_shutdown([this]() { stop(); });
 }
-Camera::~Camera() {
-    stop();
-}
+Camera::~Camera() = default;
 void Camera::onConfigure() {
     getDeviceType();
     createPipeline();
@@ -78,20 +76,11 @@ void Camera::diagCB(const diagnostic_msgs::msg::DiagnosticArray::SharedPtr msg) 
 }
 
 void Camera::start() {
-    bool success = false;
-    while(!success) {
-        try {
-            RCLCPP_INFO(this->get_logger(), "Starting camera.");
-            if(!camRunning) {
-                onConfigure();
-            } else {
-                RCLCPP_INFO(this->get_logger(), "Camera already running!.");
-            }
-            success = true;
-        } catch(const std::exception& e) {
-            RCLCPP_ERROR(this->get_logger(), "Exception occurred: %s. Retry", e.what());
-            camRunning = false;
-        }
+    RCLCPP_INFO(this->get_logger(), "Starting camera.");
+    if(!camRunning) {
+        onConfigure();
+    } else {
+        RCLCPP_INFO(this->get_logger(), "Camera already running!.");
     }
 }
 
@@ -127,6 +116,7 @@ void Camera::saveCalib() {
     savePath << "/tmp/" << device->getMxId().c_str() << "_calibration.json";
     RCLCPP_INFO(get_logger(), "Saving calibration to: %s", savePath.str().c_str());
     calibHandler.eepromToJsonFile(savePath.str());
+    auto json = calibHandler.eepromToJson();
 }
 
 void Camera::loadCalib(const std::string& path) {

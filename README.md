@@ -1,3 +1,33 @@
+## depthai-ros (humble) - 2.10.2-1
+
+The packages in the `depthai-ros` repository were released into the `humble` distro by running `/home/z572/gits/revyos-ros/venv2/bin/bloom-release -r humble depthai-ros --override-release-repository-push-url git@github.com:revyos-ros/depthai-ros-release.git` on `Tue, 08 Oct 2024 06:36:22 -0000`
+
+These packages were released:
+- `depthai-ros`
+- `depthai_bridge`
+- `depthai_descriptions`
+- `depthai_examples`
+- `depthai_filters`
+- `depthai_ros_driver`
+- `depthai_ros_msgs`
+
+Version of package(s) in repository `depthai-ros`:
+
+- upstream repository: https://github.com/luxonis/depthai-ros.git
+- release repository: https://github.com/revyos-ros/depthai-ros-release.git
+- rosdistro version: `2.10.2-1`
+- old version: `2.10.1-1`
+- new version: `2.10.2-1`
+
+Versions of tools used:
+
+- bloom version: `0.12.0`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.22.2`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## depthai-ros (jazzy) - 2.10.2-1
 
 The packages in the `depthai-ros` repository were released into the `jazzy` distro by running `/home/z572/gits/revyos-ros/venv2/bin/bloom-release -r jazzy depthai-ros --override-release-repository-push-url git@github.com:revyos-ros/depthai-ros-release.git` on `Tue, 08 Oct 2024 04:24:28 -0000`
